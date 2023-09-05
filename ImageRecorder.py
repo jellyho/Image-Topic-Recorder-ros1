@@ -26,7 +26,7 @@ class ImageToVideoConverter:
             if self.video_writer is None:
                 height, width, _ = cv_image.shape
                 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Video codec
-                self.video_writer = cv2.VideoWriter(f'/home/khadas/output_video_{self.datetime}.avi', fourcc, self.fps, (width, height))
+                self.video_writer = cv2.VideoWriter(f'~/output_video_{self.datetime}.avi', fourcc, self.fps, (width, height))
             
             num_frame = int(time_diff * self.fps)
             for _ in range(num_frame):
