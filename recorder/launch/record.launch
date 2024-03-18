@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="topic" defualt="/image"/>
-    <arg name="fps" defualt="24" />
+    <arg name="topic" default="/webcam"/>
+    <arg name="fps" default="24" />
     <node pkg="recorder" type="ImageRecorder.py" name="record" required="true" output="screen">
         <param name="topic_name" type="string" value="$(arg topic)"/>
         <param name="fps" type="int" value="$(arg fps)"/>

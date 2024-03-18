@@ -18,3 +18,5 @@ source devel/setup.bash
 
 roslaunch recorder record.launch topic:="/image_topic_name" fps:=24
 ```
+
+> You should consider rgb encoding here(rgb, bgr .. etc)
