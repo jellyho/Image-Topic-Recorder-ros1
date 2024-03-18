@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="recorder" type="ImageRecorder.py" name="record" required="true" output="screen" />
+</launch>
