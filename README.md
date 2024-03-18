@@ -10,7 +10,7 @@ As you can see from the video below, it can be seen that the video does not acce
 https://github.com/jellyho/Image_topic_recorder-ros1/assets/20741606/ea9f0d1b-e048-4220-b69c-e39546339139
 
 
-1) Installation
+#### 1) Installation
 ```jsx
 cd catkin_ws/src
 git clone https://github.com/jellyho/Image_topic_recorder-ros1
@@ -18,7 +18,7 @@ cd ..
 catkin_make
 ```
 
-2) Run
+#### 2) Run
 ```jsx
 source devel/setup.bash
 
