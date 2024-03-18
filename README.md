@@ -5,7 +5,7 @@ Image Topic Recorder that preservate frame interval in python
 ### The recorded video is the same as real time
 You don't have to worry about the awkwardness of video recording caused by the jagged spacing (processing time, communication time, etc.) between the input video frame and the input topic. The time is automatically calculated and always a real-time video is created.
 
-As you can see from the video below, it can be seen that the video does not accelerate and maintains real-time even though the interval between input topics has increased by turning the AI model.
+As you can see from the video below, it can be seen that the video does not accelerate and maintains real-time even though the interval between input topics has increased by running the AI model.
 
 https://github.com/jellyho/Image_topic_recorder-ros1/assets/20741606/ea9f0d1b-e048-4220-b69c-e39546339139
 
