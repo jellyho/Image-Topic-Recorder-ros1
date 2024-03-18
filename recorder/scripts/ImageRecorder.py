@@ -5,10 +5,10 @@ from cv_bridge import CvBridge
 import datetime
 
 class ImageToVideoConverter:
-    def __init__(self):
+    def __init__(self, topic, fps):
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber('/cross_image', Image, self.image_callback)
-        self.fps = 24
+        self.image_sub = rospy.Subscriber(topic, Image, self.image_callback)
+        self.fps = 24 if fps is None else fps
         self.video_writer = None
         self.last_frame_time = None
         self.datetime = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
@@ -26,7 +26,7 @@ class ImageToVideoConverter:
             if self.video_writer is None:
                 height, width, _ = cv_image.shape
                 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Video codec
-                self.video_writer = cv2.VideoWriter(f'~/output_video_{self.datetime}.avi', fourcc, self.fps, (width, height))
+                self.video_writer = cv2.VideoWriter(f'~/recorded_video_{self.datetime}.avi', fourcc, self.fps, (width, height))
             
             num_frame = int(time_diff * self.fps)
             for _ in range(num_frame):
@@ -44,5 +44,7 @@ class ImageToVideoConverter:
 
 if __name__ == '__main__':
     rospy.init_node('image_recorder', anonymous=True)
-    converter = ImageToVideoConverter()
+    topic = rospy.get_param('~topic_name')
+    fps = rospy.get_param('~fps')
+    converter = ImageToVideoConverter(topic, fps)
     converter.run()
