@@ -19,4 +19,4 @@ source devel/setup.bash
 roslaunch recorder record.launch topic:="/image_topic_name" fps:=24
 ```
 
-> You should consider rgb encoding here(rgb, bgr .. etc)
+> You should consider rgb encoding [here](https://github.com/jellyho/Image_topic_recorder-ros1/blob/6c64b94fe193cf3d61aae27149717dc4c7f6d959/recorder/scripts/ImageRecorder.py#L21)(rgb, bgr .. etc)
