@@ -46,9 +46,8 @@ class ImageToVideoConverter:
 
 if __name__ == '__main__':
     rospy.init_node('image_recorder', anonymous=True)
-    # topic = rospy.get_param('~topic_name')
-    # fps = rospy.get_param('~fps')
-    topic = '/webcam'
+    topic = rospy.get_param('~topic_name')
+    fps = rospy.get_param('~fps')
     fps = 24
     converter = ImageToVideoConverter(topic, fps)
     converter.run()
