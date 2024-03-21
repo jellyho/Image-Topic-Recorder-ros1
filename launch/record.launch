@@ -2,8 +2,10 @@
 <launch>
     <arg name="topic" default="/webcam"/>
     <arg name="fps" default="24" />
+    <arg name="decoding" default="bgr8"/>
     <node pkg="recorder" type="ImageRecorder.py" name="record" required="true" output="screen">
         <param name="topic_name" type="string" value="$(arg topic)"/>
         <param name="fps" type="int" value="$(arg fps)"/>
+        <param name="decoding" type="string" value="$(arg decoding)"/>
     </node>
 </launch>

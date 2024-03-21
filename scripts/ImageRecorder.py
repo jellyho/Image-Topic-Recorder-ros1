@@ -7,10 +7,11 @@ from cv_bridge import CvBridge
 import datetime, os
 
 class ImageToVideoConverter:
-    def __init__(self, topic, fps):
+    def __init__(self, topic, fps, decoding):
         self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber(topic, Image, self.image_callback)
         self.fps = 24 if fps is None else fps
+        self.decoding = decoding
         self.video_writer = None
         self.last_frame_time = None
         self.datetime = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
@@ -18,7 +19,7 @@ class ImageToVideoConverter:
 
     def image_callback(self, msg):
         try:
-            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='rgb8')
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding=self.decoding)
         except Exception as e:
             print(e)
             return
@@ -48,6 +49,6 @@ if __name__ == '__main__':
     rospy.init_node('image_recorder', anonymous=True)
     topic = rospy.get_param('~topic_name')
     fps = rospy.get_param('~fps')
-    fps = 24
-    converter = ImageToVideoConverter(topic, fps)
+    decoding = rospy.get_param('~decoding')
+    converter = ImageToVideoConverter(topic, fps, decoding)
     converter.run()
