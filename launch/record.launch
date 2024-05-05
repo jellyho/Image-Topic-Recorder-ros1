@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="topic" default="/webcam"/>
-    <arg name="fps" default="24" />
-    <arg name="decoding" default="bgr8"/>
+    <arg name="fps" default="30" />
+    <arg name="decoding" default="rgb8"/>
     <node pkg="recorder" type="ImageRecorder.py" name="record" required="true" output="screen">
         <param name="topic_name" type="string" value="$(arg topic)"/>
         <param name="fps" type="int" value="$(arg fps)"/>
